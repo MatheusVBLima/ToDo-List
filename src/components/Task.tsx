@@ -9,7 +9,7 @@ export function Task() {
       {/*    FIXME: arrumar a linha inicial do paragrafo abaixo para ficar igual ao input */}
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique
-        placeat adipisicing elit. Similique placeat. asdasdasd
+        placeat adipisicing elit. Similique placeat. asdasdasd dsdsd
       </p>
     </div>
   );
