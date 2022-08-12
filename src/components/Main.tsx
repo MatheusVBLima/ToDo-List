@@ -4,7 +4,7 @@ import { Task } from "./Task";
 import styles from "../styles/main.module.css";
 
 export function Main() {
-  const [isEmpty, setIsEmpty] = useState(true);
+  const [isEmpty, setIsEmpty] = useState(false);
 
   function handleIsEmpty() {
     setIsEmpty((isEmpty) => !isEmpty);
