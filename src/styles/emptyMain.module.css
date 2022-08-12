@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1.5rem;
+  gap: 1rem;
+
+  width: 46rem;
+  height: 15.25rem;
+  border-top: 1px solid var(--gray-400);
+}
+
+.textos {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 140%;
+
+  text-align: center;
+
+  color: var(--gray-300);
+}
+
+.textos span {
+  font-weight: 400;
+}
