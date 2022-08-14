@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./App.module.css";
 import { Header } from "./Components/Header/Header";
 import { NewTask } from "./Components/NewTask/NewTask";
-import { Tasks } from "./Components/Tasks/TasksMain";
+import { TasksMain } from "./Components/Tasks/TasksMain";
 
 type Task = {
   id: string;
@@ -43,7 +43,7 @@ export function App() {
     <div className={styles.app}>
       <Header />
       <NewTask onCreateNewTask={addNewTask} />
-      <Tasks
+      <TasksMain
         onCompleteTask={toggleStateCompleteTask}
         onRemoveTask={removeTask}
         tasks={tasks}

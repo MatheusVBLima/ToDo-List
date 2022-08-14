@@ -13,7 +13,7 @@ interface TasksProps {
   onRemoveTask: (taskId: string) => void;
 }
 
-export function Tasks({ tasks, onCompleteTask, onRemoveTask }: TasksProps) {
+export function TasksMain({ tasks, onCompleteTask, onRemoveTask }: TasksProps) {
   function handleCheckChange(taskId: string) {
     onCompleteTask(taskId);
   }
