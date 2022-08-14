@@ -1,17 +1,53 @@
-import "./styles/global.css";
-import styles from "./styles/App.module.css";
-import { Header } from "./components/Header";
-import { TaskBar } from "./components/TaskBar";
-import { Main } from "./components/Main";
+import { useState } from "react";
+import styles from "./App.module.css";
+import { Header } from "./Components/Header/Header";
+import { NewTask } from "./Components/NewTask/NewTask";
+import { Tasks } from "./Components/Tasks/TasksMain";
+
+type Task = {
+  id: string;
+  title: string;
+  isCompleted: boolean;
+};
 
 export function App() {
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  function addNewTask(newTaskTitle: string) {
+    const id = new Date().getTime().toString();
+    const newTask: Task = { id, title: newTaskTitle, isCompleted: false };
+    setTasks((state) => [...state, newTask]);
+  }
+
+  function removeTask(taskId: string) {
+    setTasks((state) => {
+      return state.filter((taskItem) => taskItem.id !== taskId);
+    });
+  }
+
+  function toggleStateCompleteTask(taskId: string) {
+    setTasks((state) => {
+      return state.map((taskItem) => {
+        if (taskItem.id === taskId) {
+          return {
+            ...taskItem,
+            isCompleted: !taskItem.isCompleted,
+          };
+        }
+        return taskItem;
+      });
+    });
+  }
+
   return (
-    <>
-      <div className={styles.wrapper}>
-        <Header />
-        <TaskBar />
-        <Main />
-      </div>
-    </>
+    <div className={styles.app}>
+      <Header />
+      <NewTask onCreateNewTask={addNewTask} />
+      <Tasks
+        onCompleteTask={toggleStateCompleteTask}
+        onRemoveTask={removeTask}
+        tasks={tasks}
+      />
+    </div>
   );
 }
